@@ -16,15 +16,9 @@ export async function POST(request: NextRequest) {
     const config = new Config();
     const client = new SearchClient(config, customHeaders);
 
-    // 使用advancedSearch限定在GitHub站点
-    const response = await client.advancedSearch(query, {
-      searchType: "web",
-      count: 15,
-      sites: "github.com",
-      needUrl: true,
-      needContent: true,
-      needSummary: true,
-    });
+    // 使用webSearch方法，在查询中添加site:github.com来限定搜索范围
+    const searchQuery = `${query} site:github.com`;
+    const response = await client.webSearch(searchQuery, 15, true);
 
     return NextResponse.json({
       summary: response.summary,
