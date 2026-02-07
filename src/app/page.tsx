@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Music, FileText, Image, Link2, ArrowRight } from "lucide-react";
+import { Music, FileText, Image, Link2, ArrowRight, Github } from "lucide-react";
 
 export default function HomePage() {
   const categories = [
@@ -167,6 +167,24 @@ export default function HomePage() {
             </section>
           ))}
         </div>
+
+        {/* GitHub Search Section */}
+        <section className="bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-950 dark:to-slate-800 rounded-2xl shadow-xl p-8 text-white">
+          <div className="flex items-center gap-3 mb-4">
+            <Github className="w-8 h-8" />
+            <h2 className="text-2xl font-bold">GitHub项目搜索</h2>
+          </div>
+          <p className="text-slate-300 mb-6">
+            在GitHub上查找类似的开源项目，学习最佳实践或寻找灵感
+          </p>
+          <Link
+            href="/github-search"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 px-6 rounded-xl font-bold hover:shadow-xl hover:scale-105 transition-all"
+          >
+            <Github className="w-5 h-5" />
+            搜索GitHub项目
+          </Link>
+        </section>
 
         {/* Footer */}
         <footer className="mt-16 text-center text-slate-600 dark:text-slate-400 pb-8">
